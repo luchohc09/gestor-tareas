@@ -1,9 +1,9 @@
 credentials:
   usernames:
     admin:
-      email: admin@mail.com
-      name: Administrador
-      password: "12345"  # puedes encriptar luego
+      email: saclogistica@mic.com.co
+      name: ebalvin
+      password: "yoledije"  # puedes encriptar luego
 
 cookie:
   name: gestor_cookie
