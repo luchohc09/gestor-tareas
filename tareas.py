@@ -1,6 +1,63 @@
 import streamlit as st
 import json
 import os
+import yaml
+from yaml.loader import SafeLoader
+
+# --- Cargar usuarios desde config.yaml ---
+with open("config.yaml") as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+USUARIOS = {u: data["password"] for u, data in config["credentials"]["usernames"].items()}
+
+# --- Estilos CSS para ventana login ---
+st.markdown("""
+    <style>
+    .login-box {
+        background: #1e2027;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        width: 350px;
+        margin: auto;
+        margin-top: 100px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    .login-title {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# --- Mostrar login si no está logueado ---
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+if not st.session_state.logged_in:
+    st.markdown('<div class="login-box">', unsafe_allow_html=True)
+
+    st.image("https://upload.wikimedia.org/wikipedia/commons/4/4f/Logo.png", width=100)
+    st.markdown('<div class="login-title">Indicadores Logística</div>', unsafe_allow_html=True)
+
+    usuario = st.text_input("Usuario")
+    password = st.text_input("Contraseña", type="password")
+
+    if st.button("Ingresar"):
+        if usuario in config["credentials"]["usernames"] and password == config["credentials"]["usernames"][usuario]["password"]:
+            st.session_state.logged_in = True
+            st.success("✅ Bienvenido " + config["credentials"]["usernames"][usuario]["name"])
+            st.rerun()
+        else:
+            st.error("❌ Usuario o contraseña incorrectos")
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# --- Si logueado, mostrar gestor de tareas ---
+if st.session_state.logged_in:
+    st.title("📌 Gestor de Tareas")
 
 st.set_page_config(page_title="Gestor De Tareas", layout="wide")
 
@@ -189,3 +246,4 @@ for categoria, contenido in list(st.session_state.tareas.items()):
                         st.session_state.tareas[categoria].pop(i)
                         guardar_datos()
                         st.rerun()
+
