@@ -4,22 +4,22 @@ from yaml.loader import SafeLoader
 import json
 import os
 
+# --- Configuración inicial ---
 st.set_page_config(page_title="Gestor De Tareas", layout="wide")
 
-# =======================
-# 1. Cargar usuarios
-# =======================
+# --- Cargar usuarios ---
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
 USUARIOS = config["credentials"]["usernames"]
 
+# --- Inicializar sesión ---
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.usuario = None
 
 # =======================
-# 2. Mostrar LOGIN si no está logueado
+# 1. LOGIN
 # =======================
 if not st.session_state.logged_in:
     st.title("🔒 Login")
@@ -31,13 +31,13 @@ if not st.session_state.logged_in:
         if usuario in USUARIOS and password == USUARIOS[usuario]["password"]:
             st.session_state.logged_in = True
             st.session_state.usuario = usuario
-            st.success("Bienvenido!")
+            st.success(f"Bienvenido {usuario} 👋")
             st.rerun()
         else:
             st.error("❌ Usuario o contraseña incorrectos")
 
 # =======================
-# 3. Mostrar GESTOR solo si hay login
+# 2. GESTOR DE TAREAS
 # =======================
 else:
     st.sidebar.success(f"Bienvenido {st.session_state.usuario}")
@@ -45,10 +45,6 @@ else:
         st.session_state.logged_in = False
         st.session_state.usuario = None
         st.rerun()
-
-    # -------------------------
-    # 🚀 Aquí empieza tu gestor
-    # -------------------------
 
     DATA_FILE = "tareas.json"
 
@@ -75,7 +71,7 @@ else:
 
     st.title("📌 Gestor de Tareas")
 
-    # Formulario inicial
+    # --- Formulario inicial ---
     with st.form("nueva_tarea"):
         categoria = st.text_input("📂 Nombre de la Carpeta")
         subtarea = st.text_input("📝 Nombre de la tarea ")
@@ -83,10 +79,7 @@ else:
 
         if submitted and categoria:
             if categoria not in st.session_state.tareas:
-                if categoria in ["Facturas", "Edi"]:
-                    st.session_state.tareas[categoria] = {}
-                else:
-                    st.session_state.tareas[categoria] = []
+                st.session_state.tareas[categoria] = {} if categoria in ["Facturas", "Edi"] else []
 
             if subtarea:
                 if categoria in ["Facturas", "Edi"]:
@@ -104,7 +97,7 @@ else:
             st.success(f"Agregado en carpeta '{categoria}'")
             st.rerun()
 
-    # categorías 
+    # --- Categorías ---
     for categoria, contenido in list(st.session_state.tareas.items()):
         with st.expander(f"📂 {categoria}", expanded=True):
 
@@ -180,6 +173,7 @@ else:
                                     guardar_datos()
                                     st.rerun()
 
+            # Categorías normales
             else:
                 filtro = st.radio(
                     f"🔲 Filtrar en {categoria}:",
@@ -231,3 +225,4 @@ else:
                             st.session_state.tareas[categoria].pop(i)
                             guardar_datos()
                             st.rerun()
+
