@@ -1,11 +1,4 @@
 credentials:
   usernames:
-    admin:
-      email: saclogistica@mic.com.co
-      name: ebalvin
-      password: "yoledije"  # puedes encriptar luego
-
-cookie:
-  name: gestor_cookie
-  key: some_random_key
-  expiry_days: 30
+    ebalvin:
+      password: "yoledije"
