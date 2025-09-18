@@ -1,0 +1,178 @@
+{
+    "Muestras": [
+        {
+            "nombre": "RQD-20998 MOVIES",
+            "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-20996 MOVIES",
+            "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21006 MOVIES",
+            "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21030 MOVIES GESTION HUMANA",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "RQD-21031 MIC ALEJANDRO GOMEZ",
+            "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21032 MOVIES ALEJANDRO GOMEZ",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "RQD-21021 MOVIES",
+            "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21033 MIC DON JUAN",
+            "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21035 MOVIES ANGELA",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "RQD-21036 MOVIES ANGELA",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "RQD-21037 MIC ANGELA",
+            "estado": "Pendiente"
+        }
+    ],
+    "Facturas": {
+        "Coordinadora": [
+            {
+                "nombre": "FE02581245",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "FE02581244",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "FE02581794",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "FE02581793",
+                "estado": "Pendiente"
+            }
+        ],
+        "Proimpo": [
+            {
+                "nombre": "FV41917",
+                "estado": "Pendiente"
+            }
+        ],
+        "AVERY": [
+            {
+                "nombre": "01170163",
+                "estado": "Pendiente"
+            }
+        ],
+        "LEST SEGURIDAD ": [
+            {
+                "nombre": "LEST1486",
+                "estado": "Pendiente"
+            }
+        ],
+        "REPRESENTACIONES OSCAR JARAMILLO ": [
+            {
+                "nombre": "R221355",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "R221350",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "R221449",
+                "estado": "Pendiente"
+            }
+        ],
+        "LOGISTICA CONSULTORIA E INTEGRACION ": [
+            {
+                "nombre": "FE-2018",
+                "estado": "Pendiente"
+            }
+        ],
+        "JAGI INDUSTRY SAS": [
+            {
+                "nombre": "NC 67",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "FE 20338",
+                "estado": "Pendiente"
+            }
+        ],
+        "MAMUT S.A.S": [
+            {
+                "nombre": "FV8556",
+                "estado": "Pendiente"
+            },
+            {
+                "nombre": "FV8556",
+                "estado": "Pendiente"
+            }
+        ],
+        "COLFLEXA": [
+            {
+                "nombre": "FEL653",
+                "estado": "Pendiente"
+            }
+        ],
+        "Kamisetas": [
+            {
+                "nombre": "ka16286",
+                "estado": "Pendiente"
+            }
+        ]
+    },
+    "Edi": {
+        "14 septiembre": [
+            {
+                "nombre": "124",
+                "estado": "Pendiente"
+            }
+        ]
+    },
+    "PDV": [
+        {
+            "nombre": "26974-26977 Tres elefantes 31 julio",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "27027-27028 Tres elefantes 14 Agosto",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "27399 Mercacentro 9 de septiembre",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "27400  Cancelado castro lissa michel",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": "27546 Martínez Rivera Nuri Zulima.",
+            "estado": "Pendiente"
+        },
+        {
+            "nombre": " 27690-27692 Tres elefantes",
+            "estado": "Pendiente"
+        }
+    ],
+    "RTI": [
+        {
+            "nombre": "RTI-9662(93123508)",
+            "estado": "Pendiente"
+        }
+    ]
+}
