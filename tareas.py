@@ -4,6 +4,12 @@ from yaml.loader import SafeLoader
 import json
 import os
 
+
+
+if "logged_in" not in st.session_state or not st.session_state.logged_in:
+    st.warning("⚠️ Debes iniciar sesión primero desde la página de Login.")
+    st.stop()
+
 st.set_page_config(page_title="Gestor De Tareas", layout="wide")
 
 DATA_FILE = "tareas.json"
@@ -191,4 +197,5 @@ for categoria, contenido in list(st.session_state.tareas.items()):
                         st.session_state.tareas[categoria].pop(i)
                         guardar_datos()
                         st.rerun()
+
 
