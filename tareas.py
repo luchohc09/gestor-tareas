@@ -4,9 +4,6 @@ from yaml.loader import SafeLoader
 import json
 import os
 
-# =======================
-# 1. Cargar usuarios
-# =======================
 with open("config.yaml") as file:
     config = yaml.load(file, Loader=SafeLoader)
 
@@ -20,7 +17,7 @@ if "logged_in" not in st.session_state:
     st.session_state.usuario = None
 
 # =======================
-# 3. Ventana de Login
+# 3. LOGIN
 # =======================
 if not st.session_state.logged_in:
     st.markdown("""
@@ -45,7 +42,7 @@ if not st.session_state.logged_in:
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="login-box">', unsafe_allow_html=True)
-    st.markdown('<div class="login-title">Indicadores Logística</div>', unsafe_allow_html=True)
+    st.markdown('<div class="login-title">Gestor de Tareas - Login</div>', unsafe_allow_html=True)
 
     usuario = st.text_input("Usuario")
     password = st.text_input("Contraseña", type="password")
@@ -61,46 +58,13 @@ if not st.session_state.logged_in:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # =======================
-# 4. Mostrar gestor SOLO si login correcto
+# 4. GESTOR SOLO SI LOGIN OK
 # =======================
 else:
     st.sidebar.success(f"Bienvenido {USUARIOS[st.session_state.usuario]['name']}")
     if st.sidebar.button("Cerrar sesión"):
         st.session_state.logged_in = False
         st.rerun()
-
-    # 🚀 🚀 🚀 Aquí va tu gestor de tareas completo
-    st.title("📌 Gestor de Tareas")
-
-    DATA_FILE = "tareas.json"
-
-    def cargar_datos():
-        if os.path.exists(DATA_FILE):
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        return {}
-
-    def guardar_datos():
-        with open(DATA_FILE, "w", encoding="utf-8") as f:
-            json.dump(st.session_state.tareas, f, ensure_ascii=False, indent=4)
-
-    if "tareas" not in st.session_state:
-        st.session_state.tareas = cargar_datos()
-
-    if "editando" not in st.session_state:
-        st.session_state.editando = None
-
-    for carpeta in ["Facturas", "Edi"]:
-        if carpeta in st.session_state.tareas and isinstance(st.session_state.tareas[carpeta], list):
-            st.session_state.tareas[carpeta] = {"General": st.session_state.tareas[carpeta]}
-    guardar_datos()
-    # 🚀 🚀 🚀 Aquí recién va tu gestor de tareas
-    st.title("📌 Gestor de Tareas")
-
-
-# --- Si logueado, mostrar gestor de tareas ---
-if st.session_state.logged_in:
-    st.title("📌 Gestor de Tareas")
 
 st.set_page_config(page_title="Gestor De Tareas", layout="wide")
 
@@ -289,7 +253,3 @@ for categoria, contenido in list(st.session_state.tareas.items()):
                         st.session_state.tareas[categoria].pop(i)
                         guardar_datos()
                         st.rerun()
-
-
-
-
