@@ -4,68 +4,6 @@ from yaml.loader import SafeLoader
 import json
 import os
 
-with open("config.yaml") as file:
-    config = yaml.load(file, Loader=SafeLoader)
-
-USUARIOS = config["credentials"]["usernames"]
-
-# =======================
-# 2. Estado de sesión
-# =======================
-if "logged_in" not in st.session_state:
-    st.session_state.logged_in = False
-    st.session_state.usuario = None
-
-# =======================
-# 3. LOGIN
-# =======================
-if not st.session_state.logged_in:
-    st.markdown("""
-        <style>
-        .login-box {
-            background: #1e2027;
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            width: 350px;
-            margin: auto;
-            margin-top: 100px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
-        .login-title {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown('<div class="login-box">', unsafe_allow_html=True)
-    st.markdown('<div class="login-title">Gestor de Tareas - Login</div>', unsafe_allow_html=True)
-
-    usuario = st.text_input("Usuario")
-    password = st.text_input("Contraseña", type="password")
-
-    if st.button("Ingresar"):
-        if usuario in USUARIOS and password == USUARIOS[usuario]["password"]:
-            st.session_state.logged_in = True
-            st.session_state.usuario = usuario
-            st.rerun()
-        else:
-            st.error("❌ Usuario o contraseña incorrectos")
-
-    st.markdown('</div>', unsafe_allow_html=True)
-
-# =======================
-# 4. GESTOR SOLO SI LOGIN OK
-# =======================
-else:
-    st.sidebar.success(f"Bienvenido {USUARIOS[st.session_state.usuario]['name']}")
-    if st.sidebar.button("Cerrar sesión"):
-        st.session_state.logged_in = False
-        st.rerun()
-
 st.set_page_config(page_title="Gestor De Tareas", layout="wide")
 
 DATA_FILE = "tareas.json"
@@ -253,3 +191,4 @@ for categoria, contenido in list(st.session_state.tareas.items()):
                         st.session_state.tareas[categoria].pop(i)
                         guardar_datos()
                         st.rerun()
+
