@@ -4,7 +4,15 @@ from yaml.loader import SafeLoader
 import json
 import os
 
+if "logged_in" not in st.session_state or not st.session_state.logged_in:
+    st.warning("⚠️ Debes iniciar sesión primero desde la página de Login.")
+    st.stop()
 
+# --- Botón de logout en la barra lateral ---
+if st.sidebar.button("Cerrar sesión"):
+    st.session_state.logged_in = False
+    st.session_state.usuario = None
+    st.switch_page("pages/login.py")
 
 if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.warning("⚠️ Debes iniciar sesión primero desde la página de Login.")
@@ -197,5 +205,6 @@ for categoria, contenido in list(st.session_state.tareas.items()):
                         st.session_state.tareas[categoria].pop(i)
                         guardar_datos()
                         st.rerun()
+
 
 
