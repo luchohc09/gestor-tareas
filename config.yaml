@@ -1,0 +1,11 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@mail.com
+      name: Administrador
+      password: "12345"  # puedes encriptar luego
+
+cookie:
+  name: gestor_cookie
+  key: some_random_key
+  expiry_days: 30
