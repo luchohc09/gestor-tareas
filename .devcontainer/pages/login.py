@@ -2,25 +2,21 @@ import streamlit as st
 import json
 import os
 
-# =======================
-# 1. Validar sesión
-# =======================
-
-# Redirigir al login si no hay sesión activa
+# --- Verificar login ---
 if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.warning("⚠️ Debes iniciar sesión primero")
-    st.switch_page("tareas.py")  # o simplemente st.stop() si no quieres redirect
+    st.switch_page("tareas.py")  # 👈 si quieres redirigir de vuelta
     st.stop()
 
-# =======================
-# 2. Configuración inicial
-# =======================
-st.set_page_config(page_title="Gestor de Tareas", page_icon="📝", layout="wide")
+# --- Configuración inicial ---
+st.set_page_config(page_title="Gestor de Tareas", page_icon="📝")
+st.title("📌 Gestor de Tareas")
 
 st.sidebar.success(f"Bienvenido {st.session_state.usuario}")
 if st.sidebar.button("Cerrar sesión"):
     st.session_state.logged_in = False
     st.session_state.usuario = None
+    st.session_state.page = "login"
     st.rerun()
 
 DATA_FILE = "tareas.json"
