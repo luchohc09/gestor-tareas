@@ -26,14 +26,13 @@ if not st.session_state.logged_in:
     password = st.text_input("Contraseña", type="password")
 
     if st.button("Ingresar"):
-    if usuario in USUARIOS and password == USUARIOS[usuario]["password"]:
-        st.session_state.logged_in = True
-        st.session_state.usuario = usuario
-        st.success(f"Bienvenido {usuario} 👋")
-        st.experimental_set_query_params(logged="true")
-    else:
-        st.error("❌ Usuario o contraseña incorrectos")
-
+        if usuario in USUARIOS and password == USUARIOS[usuario]["password"]:
+            st.session_state.logged_in = True
+            st.session_state.usuario = usuario
+            st.success(f"Bienvenido {usuario} 👋")
+            st.experimental_set_query_params(logged="true")
+        else:
+            st.error("❌ Usuario o contraseña incorrectos")
 
 # =======================
 # 3. Mostrar GESTOR solo si hay login
@@ -59,6 +58,5 @@ else:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(st.session_state.tareas, f, ensure_ascii=False, indent=4)
 
-    
 
 
