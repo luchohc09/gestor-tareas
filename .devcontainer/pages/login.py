@@ -5,8 +5,10 @@ import os
 # =======================
 # 1. Validar sesión
 # =======================
+
+# Redirigir al login si no hay sesión activa
 if "logged_in" not in st.session_state or not st.session_state.logged_in:
-    st.warning("⚠️ Debes iniciar sesión primero.")
+    st.warning("⚠️ Debes iniciar sesión primero")
     st.stop()
 
 # =======================
