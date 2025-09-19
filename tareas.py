@@ -30,7 +30,7 @@ if not st.session_state.logged_in:
             st.session_state.logged_in = True
             st.session_state.usuario = usuario
             st.success("Bienvenido!")
-            st.rerun()
+            #st.rerun()
         else:
             st.error("❌ Usuario o contraseña incorrectos")
 
@@ -58,4 +58,5 @@ else:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(st.session_state.tareas, f, ensure_ascii=False, indent=4)
 
-    # 👉 Aquí pega todo tu gestor de tareas original
+    
+
