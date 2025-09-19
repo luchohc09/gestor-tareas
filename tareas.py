@@ -1,7 +1,6 @@
 import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
-from streamlit_extras.switch_page_button import switch_page
 
 # --- Configuración inicial ---
 st.set_page_config(page_title="Login", page_icon="🔒")
@@ -30,9 +29,11 @@ if not st.session_state.logged_in:
             st.session_state.logged_in = True
             st.session_state.usuario = usuario
             st.success(f"Bienvenido {usuario} 👋")
-            switch_page("login")  # 👈 Ir a login.py (gestor)
+            st.session_state.page = "login"   # 👉 marca que debe ir a login.py
+            st.rerun()
         else:
             st.error("❌ Usuario o contraseña incorrectos")
 else:
-    # Si ya estaba logueado, ir directo al gestor
-    switch_page("login")
+    # Si ya estaba logueado, redirigir directo
+    st.session_state.page = "login"
+    st.rerun()
