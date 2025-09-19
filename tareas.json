@@ -130,7 +130,12 @@
                 "estado": "Pendiente"
             }
         ],
-        "CORRUMED": []
+        "CORRUMED": [
+            {
+                "nombre": "CM306670",
+                "estado": "Pendiente"
+            }
+        ]
     },
     "Edi": {
         "14 septiembre": [
