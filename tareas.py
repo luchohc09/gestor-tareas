@@ -32,8 +32,8 @@ if st.button("Ingresar"):
         st.session_state.usuario = usuario
         st.success(f"Bienvenido {usuario} 👋")
 
-        # Redirige al gestor de tareas
-        switch_page("Gestor de tareas")
+        # 🔽 Aquí va el cambio: redirige al gestor de tareas (login.py)
+        switch_page("Login")
     else:
         st.error("❌ Usuario o contraseña incorrectos")
 
