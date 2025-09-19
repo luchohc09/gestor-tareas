@@ -1,5 +1,6 @@
 streamlit
 PyGithub
 streamlit-authenticator
+streamlit-extras
 
 
