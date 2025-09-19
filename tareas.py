@@ -1,8 +1,6 @@
 import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
-import json
-import os
 
 # =======================
 # 1. Cargar usuarios
@@ -30,32 +28,14 @@ if not st.session_state.logged_in:
             st.session_state.logged_in = True
             st.session_state.usuario = usuario
             st.success(f"Bienvenido {usuario} 👋")
-            st.query_params["logged"] = "true"  # ✅ actualizado
+
+            # ✅ Redirigir al gestor de tareas en pages/login.py
+            st.switch_page("pages/login.py")
         else:
             st.error("❌ Usuario o contraseña incorrectos")
 
 # =======================
-# 3. Mostrar GESTOR solo si hay login
+# 3. Si ya está logueado, redirigir directo al gestor
 # =======================
 else:
-    st.sidebar.success(f"Bienvenido {st.session_state.usuario}")
-    if st.sidebar.button("Cerrar sesión"):
-        st.session_state.logged_in = False
-        st.session_state.usuario = None
-        st.rerun()
-
-    st.set_page_config(page_title="Gestor De Tareas", layout="wide")
-
-    DATA_FILE = "tareas.json"
-
-    def cargar_datos():
-        if os.path.exists(DATA_FILE):
-            with open(DATA_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        return {}
-
-    def guardar_datos():
-        with open(DATA_FILE, "w", encoding="utf-8") as f:
-            json.dump(st.session_state.tareas, f, ensure_ascii=False, indent=4)
-
-
+    st.switch_page("pages/login.py")
