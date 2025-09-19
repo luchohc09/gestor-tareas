@@ -1,7 +1,6 @@
 import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
-from streamlit_extras.switch_page_button import switch_page
 
 # =======================
 # 1. Cargar usuarios
@@ -31,8 +30,6 @@ if st.button("Ingresar"):
         st.session_state.logged_in = True
         st.session_state.usuario = usuario
         st.success(f"Bienvenido {usuario} 👋")
-
-        # Redirige a la página "Login" del multipage
-        switch_page("Login")
+        st.rerun()  # 🔥 vuelve a correr la app, y se cargará login.py
     else:
         st.error("❌ Usuario o contraseña incorrectos")
