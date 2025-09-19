@@ -1,6 +1,7 @@
 import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
+from streamlit_extras.switch_page_button import switch_page
 
 # =======================
 # 1. Cargar usuarios
@@ -10,32 +11,28 @@ with open("config.yaml") as file:
 
 USUARIOS = config["credentials"]["usernames"]
 
+# Inicializar estado de sesión
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.usuario = None
 
 # =======================
-# 2. Mostrar LOGIN si no está logueado
+# 2. Mostrar LOGIN
 # =======================
-if not st.session_state.logged_in:
-    st.title("🔒 Login")
+st.set_page_config(page_title="Login", page_icon="🔒", layout="centered")
 
-    usuario = st.text_input("Usuario")
-    password = st.text_input("Contraseña", type="password")
+st.title("🔒 Login")
 
-    if st.button("Ingresar"):
-        if usuario in USUARIOS and password == USUARIOS[usuario]["password"]:
-            st.session_state.logged_in = True
-            st.session_state.usuario = usuario
-            st.success(f"Bienvenido {usuario} 👋")
+usuario = st.text_input("Usuario")
+password = st.text_input("Contraseña", type="password")
 
-            # ✅ Redirigir al gestor de tareas en pages/login.py
-            st.switch_page("pages/login.py")
-        else:
-            st.error("❌ Usuario o contraseña incorrectos")
+if st.button("Ingresar"):
+    if usuario in USUARIOS and password == USUARIOS[usuario]["password"]:
+        st.session_state.logged_in = True
+        st.session_state.usuario = usuario
+        st.success(f"Bienvenido {usuario} 👋")
 
-# =======================
-# 3. Si ya está logueado, redirigir directo al gestor
-# =======================
-else:
-    st.switch_page("pages/login.py")
+        # Redirige al gestor de tareas
+        switch_page("gestor de tareas")
+    else:
+        st.error("❌ Usuario o contraseña incorrectos")
