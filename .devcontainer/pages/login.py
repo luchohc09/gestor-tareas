@@ -5,7 +5,8 @@ import json
 import os
 
 # --- Configuración inicial ---
-st.set_page_config(page_title="Gestor De Tareas", layout="wide")
+st.set_page_config(page_title="Login", page_icon="📝")
+st.title("Login")
 
 # --- Cargar usuarios ---
 with open("config.yaml") as file:
