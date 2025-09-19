@@ -33,6 +33,7 @@ if st.button("Ingresar"):
         st.success(f"Bienvenido {usuario} 👋")
 
         # Redirige al gestor de tareas
-        switch_page("gestor de tareas")
+        switch_page("Gestor de tareas")
     else:
         st.error("❌ Usuario o contraseña incorrectos")
+
