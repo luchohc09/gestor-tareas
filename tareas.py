@@ -29,10 +29,12 @@ if st.button("Ingresar"):
 
         # Guardamos la "página activa"
         st.session_state.page = "gestor"
-        st.experimental_rerun()
+        st.rerun()
+
     else:
         st.error("❌ Usuario o contraseña incorrectos")
 
 # Si ya está logueado → redirigir
 if st.session_state.get("page") == "gestor":
     st.switch_page("pages/login.py")
+
