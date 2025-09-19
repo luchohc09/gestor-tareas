@@ -1,7 +1,6 @@
 import streamlit as st
 import yaml
 from yaml.loader import SafeLoader
-from streamlit_extras.switch_page_button import switch_page
 
 # =======================
 # 1. Cargar usuarios
@@ -11,14 +10,10 @@ with open("config.yaml") as file:
 
 USUARIOS = config["credentials"]["usernames"]
 
-# Inicializar estado de sesión
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.usuario = None
 
-# =======================
-# 2. Mostrar LOGIN
-# =======================
 st.set_page_config(page_title="Login", page_icon="🔒", layout="centered")
 
 st.title("🔒 Login")
@@ -32,9 +27,12 @@ if st.button("Ingresar"):
         st.session_state.usuario = usuario
         st.success(f"Bienvenido {usuario} 👋")
 
-        # 🔽 Aquí va el cambio: redirige al gestor de tareas (login.py)
-        switch_page("login")
+        # Guardamos la "página activa"
+        st.session_state.page = "gestor"
+        st.experimental_rerun()
     else:
         st.error("❌ Usuario o contraseña incorrectos")
 
-
+# Si ya está logueado → redirigir
+if st.session_state.get("page") == "gestor":
+    st.switch_page("pages/login.py")
