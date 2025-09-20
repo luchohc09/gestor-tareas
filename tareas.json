@@ -234,7 +234,12 @@
                 "estado": "Pendiente"
             }
         ],
-        "DITAR": []
+        "DITAR": [
+            {
+                "nombre": "DT127840",
+                "estado": "Pendiente"
+            }
+        ]
     },
     "Edi": {
         "14 septiembre": [
