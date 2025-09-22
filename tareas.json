@@ -253,7 +253,12 @@
                 "estado": "Pendiente"
             }
         ],
-        "JOSE EDGAR ARBOLEDA ": []
+        "JOSE EDGAR ARBOLEDA ": [
+            {
+                "nombre": "FE290",
+                "estado": "Pendiente"
+            }
+        ]
     },
     "Edi": {
         "14 septiembre": [
