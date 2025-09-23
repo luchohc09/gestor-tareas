@@ -314,7 +314,6 @@
                 "estado": "Pendiente"
             }
         ],
-        "FEPL 3178 ": [],
         "DISPABU": [
             {
                 "nombre": "FE218",
@@ -338,8 +337,8 @@
                 "nombre": "124",
                 "estado": "Pendiente"
             }
-        ],
-        "FEPL 3178 ": []
+        ]
+        
     },
     "PDV": [
         {
