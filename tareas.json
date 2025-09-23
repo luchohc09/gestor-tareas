@@ -381,6 +381,10 @@
         {
             "nombre": "PDV 27920 GRAN ALMACENES EL PRINCIPE",
             "estado": "Pendiente"
+        },
+        {
+            "nombre": "PDV 28019 JACKMAN",
+            "estado": "Pendiente"
         }
     ],
     "RTI": [
