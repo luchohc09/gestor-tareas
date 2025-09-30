@@ -95,6 +95,10 @@
         {
             "nombre": "RQD-21150 MIC ANGELA",
             "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21187  MIC VALERIA ",
+            "estado": "Pendiente"
         }
     ],
     "Facturas": {
