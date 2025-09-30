@@ -464,7 +464,12 @@
                 "estado": "Pendiente"
             }
         ],
-        "SAMIPLAS": []
+        "SAMIPLAS": [
+            {
+                "nombre": "FE13884",
+                "estado": "Pendiente"
+            }
+        ]
     },
     "Edi": {
         "14 septiembre": [
