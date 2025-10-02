@@ -580,7 +580,12 @@
                 "estado": "Pendiente"
             }
         ],
-        "IVAN Y JAIRO LOPEZ S.A.S": []
+        "IVAN Y JAIRO LOPEZ S.A.S": [
+            {
+                "nombre": "FVE82728",
+                "estado": "Pendiente"
+            }
+        ]
     },
     "Edi": {
         "14 septiembre": [
