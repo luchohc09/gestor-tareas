@@ -127,6 +127,10 @@
         {
             "nombre": "RQD-212034  MOVIES JUAN DAVID ROLDAN",
             "estado": "Finalizado"
+        },
+        {
+            "nombre": "RQD-21205 MOVIES ANGELA",
+            "estado": "Pendiente"
         }
     ],
     "Facturas": {
