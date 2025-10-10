@@ -183,6 +183,10 @@
         {
             "nombre": "RQD-NA-21272 MOVIES CALIDAD ANGELA",
             "estado": "Pendiente"
+        },
+        {
+            "nombre": "RQD-NA-21273 MOVIES CALIDAD NATALY",
+            "estado": "Pendiente"
         }
     ],
     "Facturas": {
