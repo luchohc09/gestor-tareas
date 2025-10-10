@@ -167,6 +167,10 @@
         {
             "nombre": "RQD-NA-21268  MOVIES GLENY",
             "estado": "Pendiente"
+        },
+        {
+            "nombre": "RQD-NA-21269 MOVIES DEISY",
+            "estado": "Pendiente"
         }
     ],
     "Facturas": {
