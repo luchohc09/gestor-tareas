@@ -930,7 +930,12 @@
                 "estado": "Pendiente"
             }
         ],
-        "CAJAS YA": []
+        "CAJAS YA": [
+            {
+                "nombre": "FE65710",
+                "estado": "Pendiente"
+            }
+        ]
     },
     "Edi": {
         "14 septiembre": [
